@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:gravity="center"
+        android:text="PARADISE ADMIN"
+        android:textColor="#FF5722"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F5F0F0"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_addRoom"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Add a Room"
+                    app:icon="@drawable/addfile"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+
+                <Button
+                    android:id="@+id/btn_addCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Add Customer"
+                    app:icon="@drawable/adduser"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+
+                <Button
+                    android:id="@+id/btn_available_room"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Available Rooms"
+                    app:icon="@drawable/signal"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#4CAF50"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_room"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="All Rooms"
+                    app:icon="@drawable/livingroom"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+
+                <Button
+                    android:id="@+id/btn_customers"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Customers"
+                    app:icon="@drawable/rating"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+
+                <Button
+                    android:id="@+id/btn_booked_rooms"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Booked Rooms"
+                    app:icon="@drawable/list"
+                    app:iconGravity="top"
+                    app:iconSize="40dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_profits"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Profits"
+                app:icon="@drawable/income"
+                app:iconSize="50dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

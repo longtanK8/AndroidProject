@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/admin_all_room_view.xml" value="0.1" />
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/admin_main_activity.xml" value="0.22826086956521738" />
         <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/function_custom.xml" value="0.22826086956521738" />
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/room_list_item.xml" value="0.4" />
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/layout/room_view.xml" value="0.22826086956521738" />
-        <entry key="..\:/EDU/AndroidProject/app/src/main/res/menu/admin_main_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/activity_login.xml" value="0.1585612968591692" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/admin_add_room_view.xml" value="0.1578125" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/admin_all_room_view.xml" value="0.22" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/admin_booked_room_view.xml" value="0.29717813051146386" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/admin_main_activity.xml" value="0.25" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/room_detail_view.xml" value="0.25" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/layout/room_list_item.xml" value="0.2817028985507246" />
+        <entry key="..\:/Mobile Programming/AndroidProject/app/src/main/res/menu/main_out.xml" value="0.32083333333333336" />
       </map>
     </option>
   </component>

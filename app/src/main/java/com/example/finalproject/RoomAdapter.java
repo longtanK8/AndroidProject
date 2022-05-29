@@ -7,18 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomApdater extends BaseAdapter {
+public class RoomAdapter extends BaseAdapter {
 
     Context context;
     List<Room> list;
 
-    public RoomApdater(Context context, List<Room> list) {
+    public RoomAdapter(Context context, List<Room> list) {
         this.context = context;
         this.list = list;
     }
@@ -50,18 +51,22 @@ public class RoomApdater extends BaseAdapter {
             lv_row.roomAvt = (ImageView) convertView.findViewById(R.id.room_avt);
             lv_row.type = (TextView) convertView.findViewById(R.id.txt_type);
             lv_row.availability = (TextView) convertView.findViewById(R.id.txt_available);
-            lv_row.delete = (Button) convertView.findViewById(R.id.btn_delete_room);
+            lv_row.delete = (CheckBox) convertView.findViewById(R.id.chk_all_delete);
 
             convertView.setTag(lv_row);
         }else{
             lv_row = (ListView_Row) convertView.getTag();
         }
 
-        lv_row.type.setText(list.get(position).getType());
+        lv_row.type.setText(list.get(position).getType() + " " + list.get(position).getId());
         if(list.get(position).available){
             lv_row.availability.setText("Status: Available" );
         }else{
             lv_row.availability.setText("Status: Booked" );
+        }
+
+        if(!list.get(position).available){
+            lv_row.delete.setEnabled(false);
         }
         return convertView;
     }
@@ -70,6 +75,6 @@ public class RoomApdater extends BaseAdapter {
         public ImageView roomAvt;
         public TextView type;
         public TextView availability;
-        public Button delete;
+        public CheckBox delete;
     }
 }

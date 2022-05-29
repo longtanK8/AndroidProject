@@ -1,9 +1,13 @@
 package com.example.finalproject;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
     private String id;
     private String type;
     boolean available;
+    String description = "Nothing to show";
+    int price;
 
     public Room(String id, String type, boolean available) {
         this.id = id;
@@ -33,6 +37,22 @@ public class Room {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override

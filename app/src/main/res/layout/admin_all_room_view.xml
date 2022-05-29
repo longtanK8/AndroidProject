@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_view_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -13,11 +13,32 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_all_return"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Return" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_all_return"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="3"
+            android:text="Return" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5" />
+
+        <Button
+            android:id="@+id/btn_all_delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bin" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/lv_all_room"

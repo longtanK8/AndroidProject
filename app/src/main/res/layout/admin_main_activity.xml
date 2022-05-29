@@ -41,7 +41,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="#4CAF50"
-                    android:text="Add a Room"
+                    android:text="Add a  new Room"
                     app:icon="@drawable/addfile"
                     app:iconGravity="top"
                     app:iconSize="40dp" />

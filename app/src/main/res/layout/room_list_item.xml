@@ -38,15 +38,14 @@
             android:layout_weight="1"
             android:gravity="center|left"
             android:text="Status" />
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_delete_room"
+    <CheckBox
+        android:id="@+id/chk_all_delete"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_margin="3dp"
         android:layout_weight="1"
-        android:backgroundTint="#CCCCCC"
-        app:icon="@drawable/bin"
-        app:iconSize="30dp" />
+        android:text="Delete" />
+
 </LinearLayout>

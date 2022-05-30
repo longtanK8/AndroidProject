@@ -24,6 +24,8 @@
         <activity android:name=".AdminAddRoom"></activity>
         <activity android:name=".AdminBookedView"></activity>
         <activity android:name=".AdminAvailableView"></activity>
+        <activity android:name=".RegisterAccount"></activity>
+        <activity android:name=".UserInformationComplete"></activity>
     </application>
 
 </manifest>

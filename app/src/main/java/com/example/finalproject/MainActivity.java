@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button login, register;
     DBSimulator dbSimulator;
     private static final int code = 0;
+    private static final int register_code = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent registerIntent = new Intent(MainActivity.this, RegisterAccount.class);
+                registerIntent.putExtra("customerList", dbSimulator);
+                startActivityForResult(registerIntent, register_code);
+            }
+        });
     }
 
     @Override
@@ -66,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
                 // Get String data from Intent
                 dbSimulator = (DBSimulator) data.getExtras().get("package");
 
+            }
+
+        }
+        if(requestCode == register_code){
+            if(resultCode == RESULT_OK) {
+                Customer customer = (Customer) data.getExtras().get("customer");
+                dbSimulator.customerList.add(customer);
+                System.out.println(dbSimulator.customerList.get(0).getName());
             }
         }
     }

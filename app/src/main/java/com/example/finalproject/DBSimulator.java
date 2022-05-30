@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class DBSimulator implements Serializable {
     List<Room> roomList;
+    List<Customer> customerList;
 
 
     public DBSimulator() {
@@ -19,6 +20,7 @@ public class DBSimulator implements Serializable {
         random[2] = "Junior";
         random[3] = "Superior";
         roomList = new ArrayList<>();
+        customerList = new ArrayList<>();
 
         for (int i = 0; i < 30; i++) {
             boolean temp;

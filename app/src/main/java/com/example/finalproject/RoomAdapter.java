@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomAdapter extends BaseAdapter {
@@ -49,8 +47,8 @@ public class RoomAdapter extends BaseAdapter {
 
             lv_row = new ListView_Row();
             lv_row.roomAvt = (ImageView) convertView.findViewById(R.id.room_avt);
-            lv_row.type = (TextView) convertView.findViewById(R.id.txt_type);
-            lv_row.availability = (TextView) convertView.findViewById(R.id.txt_available);
+            lv_row.type = (TextView) convertView.findViewById(R.id.txt_customer_name);
+            lv_row.availability = (TextView) convertView.findViewById(R.id.txt_customer_spending);
             lv_row.delete = (CheckBox) convertView.findViewById(R.id.chk_all_delete);
 
             convertView.setTag(lv_row);

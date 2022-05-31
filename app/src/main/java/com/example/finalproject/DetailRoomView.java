@@ -13,6 +13,7 @@ public class DetailRoomView extends AppCompatActivity {
 
     TextView id, type, price, description;
     Button btn_return;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class DetailRoomView extends AppCompatActivity {
         Room data = (Room) bundle.get("room");
         id.setText(data.getId());
         type.setText(data.getType());
-        price.setText(data.getPrice());
+        price.setText("" + data.getPrice());
         description.setText(data.getDescription());
 
         btn_return = (Button) findViewById(R.id.btn_detail_return);

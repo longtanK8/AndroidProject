@@ -26,6 +26,8 @@
         <activity android:name=".AdminAvailableView"></activity>
         <activity android:name=".RegisterAccount"></activity>
         <activity android:name=".UserInformationComplete"></activity>
+        <activity android:name=".CustomerView"></activity>
+        <activity android:name=".AdminAddCustomer"></activity>
     </application>
 
 </manifest>

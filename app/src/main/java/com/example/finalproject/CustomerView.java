@@ -3,29 +3,23 @@ package com.example.finalproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class AllRoomView extends AppCompatActivity {
-    ListView roomView;
-    List<Room> roomList;
+public class CustomerView extends AppCompatActivity {
+    ListView customerView;
+    List<Customer> customerList;
     TextView title;
-    RoomAdapter adapter;
+    CustomerAdapter adapter;
     Button btnDelete;
     DBSimulator dbSimulator;
-    final int detail_edit_code = 1;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +28,12 @@ public class AllRoomView extends AppCompatActivity {
         title = (TextView) findViewById(R.id.txt_view_title);
         Bundle extras = getIntent().getExtras();
         dbSimulator = (DBSimulator) extras.get("package");
-        roomList = dbSimulator.getRoomList();
-        adapter = new RoomAdapter(AllRoomView.this, roomList);
-        roomView = (ListView) findViewById(R.id.lv_all_room);
-        roomView.setAdapter(adapter);
+        customerList = dbSimulator.customerList;
+        adapter = new CustomerAdapter(CustomerView.this, customerList);
+        customerView = (ListView) findViewById(R.id.lv_all_room);
+        customerView.setAdapter(adapter);
         btnDelete = (Button) findViewById(R.id.btn_all_delete);
-        title.setText("ALL ROOMS");
+        title.setText("ALL CUSTOMERS");
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,43 +49,21 @@ public class AllRoomView extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("package", dbSimulator);
                 setResult(RESULT_OK, intent);
-                dbSimulator.setRoomList(roomList);
+                dbSimulator.setCustomerList(customerList);
                 finish();
             }
         });
-
-        roomView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(AllRoomView.this, ""+roomList.get(i).getType(), Toast.LENGTH_SHORT).show();
-                Intent roomIntent = new Intent(AllRoomView.this, DetailRoomView.class);
-                roomIntent.putExtra("room", roomList.get(i));
-                startActivity(roomIntent);
-            }
-        });
-
-
-
-        roomView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                return false;
-            }
-        });
-
     }
-
     public void deleteHandle() {
-        for (int i = roomView.getChildCount() - 1; i >=0; i--) {
-            View v = roomView.getChildAt(i);
-            CheckBox chk_delete = (CheckBox) v.findViewById(R.id.chk_all_delete);
+        for (int i = customerView.getChildCount() - 1; i >=0; i--) {
+            View v = customerView.getChildAt(i);
+            CheckBox chk_delete = (CheckBox) v.findViewById(R.id.chk_customer_delete);
             if(chk_delete.isChecked()){
                 chk_delete.setChecked(false);
-                roomList.remove(i);
+                customerList.remove(i);
                 adapter.notifyDataSetChanged();
             }
         }
 
     }
-
 }

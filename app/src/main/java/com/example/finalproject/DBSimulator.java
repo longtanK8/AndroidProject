@@ -3,7 +3,9 @@ package com.example.finalproject;
 import android.os.Bundle;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -21,6 +23,17 @@ public class DBSimulator implements Serializable {
         random[3] = "Superior";
         roomList = new ArrayList<>();
         customerList = new ArrayList<>();
+        Date d = new Date();
+        try{
+            SimpleDateFormat fm = new SimpleDateFormat("MM/dd/yyyy");
+            d = fm.parse("12/01/2000");
+        }catch (Exception e){
+            d = d;
+        }
+
+
+        Customer c = new Customer("001", "Long Truong", "long@gmail.com", d, "023213214112");
+        customerList.add(c);
 
         for (int i = 0; i < 30; i++) {
             boolean temp;
@@ -51,7 +64,15 @@ public class DBSimulator implements Serializable {
         return (ArrayList<Room>) roomList;
     }
 
+    public List<Customer> getCustomerList() {
+        return customerList;
+    }
+
     public void setRoomList(List<Room> roomList) {
         this.roomList = roomList;
+    }
+
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
     }
 }

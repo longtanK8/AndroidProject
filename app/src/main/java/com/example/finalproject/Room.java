@@ -7,6 +7,7 @@ public class Room implements Serializable {
     private String type;
     boolean available;
     String description = "Nothing to show";
+    Customer booker;
     int price;
 
     public Room(String id, String type, boolean available) {

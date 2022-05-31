@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminActivity extends AppCompatActivity {
-    private static final int code = 0, add_code = 1;
+    private static final int code = 0, add_code = 1, add_customer = 2;
     DBSimulator dbSimulator;
 
     @Override
@@ -76,6 +76,26 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        Button btn_customer_view = (Button) findViewById(R.id.btn_customers);
+        btn_customer_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent customerIntent = new Intent(AdminActivity.this, CustomerView.class);
+                customerIntent.putExtra("package", dbSimulator);
+                startActivityForResult(customerIntent, code);
+            }
+        });
+
+        Button btn_add_customer = (Button) findViewById(R.id.btn_addCustomer);
+        btn_add_customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent customerIntent = new Intent(AdminActivity.this, AdminAddCustomer.class);
+                customerIntent.putExtra("package", dbSimulator);
+                startActivityForResult(customerIntent, add_customer);
+            }
+        });
+
     }
 
     @Override
@@ -94,6 +114,11 @@ public class AdminActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 dbSimulator.roomList.add((Room)data.getExtras().get("newRoom"));
                 Toast.makeText(AdminActivity.this, "Room added successfully!", Toast.LENGTH_SHORT).show();
+            }
+        }else if(requestCode == add_customer){
+            if(resultCode == RESULT_OK){
+                dbSimulator = (DBSimulator) data.getExtras().get("package");
+                Toast.makeText(this, "cCustomer added successfully!", Toast.LENGTH_SHORT).show();
             }
         }
     }

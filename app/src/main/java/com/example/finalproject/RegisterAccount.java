@@ -32,6 +32,13 @@ public class RegisterAccount extends AppCompatActivity {
         DBSimulator dbSimulator = (DBSimulator) bundle.get("customerList");
         List<Customer> list = dbSimulator.customerList;
 
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

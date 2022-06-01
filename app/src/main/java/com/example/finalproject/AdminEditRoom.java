@@ -11,47 +11,52 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AdminAddRoom extends AppCompatActivity {
+public class AdminEditRoom extends AppCompatActivity {
     EditText id, type, price, description;
     TextView title;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_add_room_view);
 
+        Button btnAdd = (Button) findViewById(R.id.btn_add_room_add);
+        Button btnReturn = (Button) findViewById(R.id.btn_add_room_return);
+
+        Bundle bundle = getIntent().getExtras();
+        Room room = (Room) bundle.get("room");
+
         title = (TextView) findViewById(R.id.txt_title_add);
-        title.setText("ADD NEW ROOM");
+        title.setText("EDIT ROOM");
         id = (EditText) findViewById(R.id.edt_add_id);
         type = (EditText) findViewById(R.id.edt_add_type);
         price = (EditText) findViewById(R.id.edt_add_price);
         description = (EditText) findViewById(R.id.edt_add_description);
 
-        Bundle bundle = getIntent().getExtras();
+        id.setText(room.getId());
+        type.setText(room.getType());
+        price.setText(room.getPrice()+"");
+        description.setText(room.getDescription());
 
-        long tempID = Long.parseLong((String) bundle.get("finalID"));
-        id.setText("00" + (tempID + 1));
-
-        Button btnAdd = (Button) findViewById(R.id.btn_add_room_add);
-        btnAdd.setText("ADD");
-        Button btnReturn = (Button) findViewById(R.id.btn_add_room_return);
-
+        btnAdd.setText("CONFIRM");
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String typeIn, priceIn, descIn;
-                typeIn = type.getText().toString();
-                priceIn = price.getText().toString();
-                descIn = description.getText().toString();
-                if (typeIn.equals("") || priceIn.equals("") || descIn.equals("")) {
-                    Toast.makeText(AdminAddRoom.this, "Data not filled!", Toast.LENGTH_SHORT).show();
+                String rType, rPrice, rDescription;
+                rType = type.getText().toString();
+                rPrice = price.getText().toString();
+                rDescription = description.getText().toString();
+
+                if(rType.equals("") || rPrice.equals("")){
+                    Toast.makeText(AdminEditRoom.this, "Data is not filled in!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Room nRoom = new Room("00" + (tempID + 1),typeIn, true);
-                    nRoom.setPrice(Integer.parseInt(priceIn));
-                    nRoom.setDescription(descIn);
+                    room.setType(rType);
+                    room.setPrice(Integer.parseInt(rPrice));
+                    room.setDescription(rDescription);
+
                     Intent intent = new Intent();
-                    intent.putExtra("newRoom", nRoom);
+                    intent.putExtra("room", room);
                     setResult(RESULT_OK, intent);
+                    Toast.makeText(AdminEditRoom.this, "Room information changed successfully!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -60,9 +65,11 @@ public class AdminAddRoom extends AppCompatActivity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(AdminEditRoom.this, "Changing process cancelled!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
+
 
     }
 }

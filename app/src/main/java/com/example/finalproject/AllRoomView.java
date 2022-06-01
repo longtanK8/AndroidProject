@@ -66,7 +66,7 @@ public class AllRoomView extends AppCompatActivity {
                 Toast.makeText(AllRoomView.this, ""+roomList.get(i).getType(), Toast.LENGTH_SHORT).show();
                 Intent roomIntent = new Intent(AllRoomView.this, DetailRoomView.class);
                 roomIntent.putExtra("room", roomList.get(i));
-                startActivity(roomIntent);
+                startActivityForResult(roomIntent, detail_edit_code);
             }
         });
 
@@ -92,6 +92,27 @@ public class AllRoomView extends AppCompatActivity {
             }
         }
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == detail_edit_code) {
+            if (resultCode == RESULT_OK) {
+
+                // Get String data from Intent
+                Room r = (Room) data.getExtras().get("room");
+                for(int i = 0; i<dbSimulator.roomList.size(); i++){
+                    Room room = dbSimulator.roomList.get(i);
+                    if(r.getId().equals(room.getId())){
+                        dbSimulator.roomList.remove(i);
+                        dbSimulator.roomList.add(i, r);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        }
     }
 
 }

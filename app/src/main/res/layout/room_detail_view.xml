@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView5"
@@ -17,7 +18,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:background="#807CC3E3">
 
         <TableRow
             android:layout_width="match_parent"
@@ -28,14 +30,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="ID" />
+                android:text="ID"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_room_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -48,14 +52,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Room Type" />
+                android:text="Room Type"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_room_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -68,14 +74,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Room Price" />
+                android:text="Room Price"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_room_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -88,24 +96,41 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Description" />
+                android:text="Description"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_room_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textStyle="bold" />
         </TableRow>
-    </TableLayout>
 
-    <Button
-        android:id="@+id/btn_detail_return"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="50dp"
-        android:text="Return" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_detail_return"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:text="Return" />
+
+            <Button
+                android:id="@+id/btn_detail_edit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#CD2115"
+                android:text="Edit" />
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

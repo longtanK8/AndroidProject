@@ -40,7 +40,7 @@ public class CustomerAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ListView_Row lv_row;
 
-        if(view == null){
+        if (view == null) {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             view = layoutInflater.inflate(R.layout.customer_list_item, null);
 
@@ -51,30 +51,28 @@ public class CustomerAdapter extends BaseAdapter {
             lv_row.delete = (CheckBox) view.findViewById(R.id.chk_customer_delete);
 
             view.setTag(lv_row);
-        }else{
+        } else {
             lv_row = (ListView_Row) view.getTag();
         }
 
         lv_row.name.setText(list.get(i).getName());
         long spend = 0;
         List<Room> bookedList = list.get(i).getBookedList();
-        try{
-            for(int j = 0; j < bookedList.size(); j++){
-                spend+=bookedList.get(j).price;
-            }
-            lv_row.totalSpend.setText("Total spending: $" + spend);
-        }catch (Exception e){
-            spend = 0;
-            lv_row.totalSpend.setText("No rooms booked!");
+
+        for (int j = 0; j < bookedList.size(); j++) {
+            spend += bookedList.get(j).price;
         }
-
-
+        if (spend == 0) {
+            lv_row.totalSpend.setText("No rooms booked!");
+        } else {
+            lv_row.totalSpend.setText("Total spending: $" + spend);
+        }
 
 
         return view;
     }
 
-    private class ListView_Row{
+    private class ListView_Row {
         public ImageView customerAvt;
         public TextView name;
         public TextView totalSpend;

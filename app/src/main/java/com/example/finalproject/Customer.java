@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Customer implements Serializable {
-    private String id;
-    private String name;
-    private String email;
-    private Date birthDate;
-    private String phoneNum;
-    private String userName;
-    private String password;
+    private String id = "";
+    private String name = "";
+    private String email = "";
+    private Date birthDate = null;
+    private String phoneNum = "";
+    private String userName = "";
+    private String password = "";
     ArrayList<Room> bookedList;
 
     public Customer(String id, String name, String email, Date birthDate, String phoneNum) {
+        bookedList = new ArrayList<>();
         this.id = id;
         this.name = name;
         this.email = email;
@@ -23,6 +24,7 @@ public class Customer implements Serializable {
     }
 
     public Customer(String userName, String password) {
+        bookedList = new ArrayList<>();
         this.userName = userName;
         this.password = password;
     }

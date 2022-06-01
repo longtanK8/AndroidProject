@@ -2,6 +2,8 @@ package com.example.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,24 +45,24 @@ public class UserInformationComplete extends AppCompatActivity {
                 try {
                     SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                     birth = format.parse(tempDate);
+                    if (fname.equals("") || phoneNum.equals("") || mail.equals("") || tempDate.equals("")) {
+                        Toast.makeText(UserInformationComplete.this, "Please fill in all information!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        customer.setId("cus" + phoneNum + tempDate.split("/")[0]);
+                        customer.setBirthDate(birth);
+                        customer.setEmail(mail);
+                        customer.setName(fname);
+                        customer.setPhoneNum(phoneNum);
+                        Toast.makeText(UserInformationComplete.this, "Information filled in successfully!", Toast.LENGTH_SHORT).show();
+                        Intent returnIntent = new Intent();
+                        returnIntent.putExtra("customer", customer);
+                        setResult(RESULT_OK, returnIntent);
+                        finish();
+                    }
                 } catch (Exception e) {
                     Toast.makeText(UserInformationComplete.this, "Wrong date format input!", Toast.LENGTH_SHORT).show();
                 }
 
-                if (fname.equals("") || phoneNum.equals("") || mail.equals("") || tempDate.equals("")) {
-                    Toast.makeText(UserInformationComplete.this, "Please fill in all information!", Toast.LENGTH_SHORT).show();
-                } else {
-                    customer.setId("cus" + phoneNum + tempDate.split("/")[0]);
-                    customer.setBirthDate(birth);
-                    customer.setEmail(mail);
-                    customer.setName(fname);
-                    customer.setPhoneNum(phoneNum);
-                    Toast.makeText(UserInformationComplete.this, "Information filled in successfully!", Toast.LENGTH_SHORT).show();
-                    Intent returnIntent = new Intent();
-                    returnIntent.putExtra("customer", customer);
-                    setResult(RESULT_OK, returnIntent);
-                    finish();
-                }
 
             }
         });

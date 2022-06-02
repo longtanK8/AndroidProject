@@ -96,6 +96,16 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        Button btn_profits = (Button) findViewById(R.id.btn_profits);
+        btn_profits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profitIntent = new Intent(AdminActivity.this, AdminProfitsView.class);
+                profitIntent.putExtra("package", dbSimulator);
+                startActivity(profitIntent);
+            }
+        });
+
     }
 
     @Override
@@ -121,6 +131,8 @@ public class AdminActivity extends AppCompatActivity {
                 Toast.makeText(this, "cCustomer added successfully!", Toast.LENGTH_SHORT).show();
             }
         }
+
+        dbSimulator.updateBooking();
     }
 
     @Override

@@ -26,7 +26,6 @@ public class AdminAddRoom extends AppCompatActivity {
         type = (EditText) findViewById(R.id.edt_add_type);
         price = (EditText) findViewById(R.id.edt_add_price);
         description = (EditText) findViewById(R.id.edt_add_description);
-
         Bundle bundle = getIntent().getExtras();
 
         long tempID = Long.parseLong((String) bundle.get("finalID"));

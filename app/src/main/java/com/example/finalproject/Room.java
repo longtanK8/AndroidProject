@@ -6,11 +6,14 @@ public class Room implements Serializable {
     private String id;
     private String type;
     boolean available;
+    public int bed;
+    public int people;
     String description = "Nothing to show";
     Customer booker;
     int price;
 
     public Room(String id, String type, boolean available) {
+        booker = new Customer();
         this.id = id;
         this.type = type;
         this.available = available;
@@ -55,6 +58,7 @@ public class Room implements Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
+
 
     @Override
     public String toString() {

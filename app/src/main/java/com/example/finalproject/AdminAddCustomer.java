@@ -1,9 +1,11 @@
 package com.example.finalproject;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -11,10 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-public class AdminAddCustomer extends AppCompatActivity {
+public class AdminAddCustomer extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     EditText fullName, phone, email, birthdate;
     Button confirm;
     @Override
@@ -27,6 +31,14 @@ public class AdminAddCustomer extends AppCompatActivity {
         email = (EditText) findViewById(R.id.edt_infor_email);
         birthdate = (EditText) findViewById(R.id.edt_infor_birthdate);
         confirm = (Button) findViewById(R.id.btn_infor_confirm);
+
+        birthdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerFragment datepicker = new DatePickerFragment();
+                datepicker.show(getSupportFragmentManager(), "Date picker");
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         DBSimulator dbSimulator = (DBSimulator) bundle.get("package");
@@ -62,5 +74,15 @@ public class AdminAddCustomer extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        String myFormat="MM/dd/yyyy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+        birthdate.setText(dateFormat.format(calendar.getTime()));
     }
 }

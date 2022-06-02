@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailRoomView extends AppCompatActivity {
 
-    TextView id, type, price, description;
+    TextView id, type, price, description, booker;
     Button btn_return, btn_edit;
     final private int edit_code = 1;
     Room room;
@@ -26,6 +26,7 @@ public class DetailRoomView extends AppCompatActivity {
         type = (TextView) findViewById(R.id.txt_room_type);
         price = (TextView) findViewById(R.id.txt_room_price);
         description = (TextView) findViewById(R.id.txt_room_description);
+        booker = (TextView) findViewById(R.id.txt_room_booker);
 
         Bundle bundle = getIntent().getExtras();
         room = (Room) bundle.get("room");
@@ -33,6 +34,11 @@ public class DetailRoomView extends AppCompatActivity {
         type.setText(room.getType());
         price.setText("" + room.getPrice());
         description.setText(room.getDescription());
+        String bookerName = room.booker.getName();
+        if(bookerName.equals(""))
+            bookerName = "No booking order yet";
+        booker.setText(bookerName);
+
 
         btn_return = (Button) findViewById(R.id.btn_detail_return);
         btn_return.setOnClickListener(new View.OnClickListener() {

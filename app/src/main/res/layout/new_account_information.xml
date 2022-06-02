@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="#807CC3E3">
+        android:background="#99FFFFFF">
 
         <TableRow
             android:layout_width="match_parent"
@@ -107,6 +107,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:ems="10"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:hint="mm/dd/yyyy"
                 android:inputType="date"
                 android:textStyle="bold" />

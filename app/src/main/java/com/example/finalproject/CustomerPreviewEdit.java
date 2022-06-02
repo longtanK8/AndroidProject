@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-public class CustomerView extends AppCompatActivity {
+public class CustomerPreviewEdit extends AppCompatActivity {
     ListView customerView;
     List<Customer> customerList;
     TextView title;
@@ -33,7 +35,7 @@ public class CustomerView extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         dbSimulator = (DBSimulator) extras.get("package");
         customerList = dbSimulator.customerList;
-        adapter = new CustomerAdapter(CustomerView.this, customerList);
+        adapter = new CustomerAdapter(CustomerPreviewEdit.this, customerList);
         customerView = (ListView) findViewById(R.id.lv_all_room);
         customerView.setAdapter(adapter);
         btnDelete = (Button) findViewById(R.id.btn_all_delete);
@@ -43,6 +45,15 @@ public class CustomerView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteHandle();
+            }
+        });
+
+        customerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(CustomerPreviewEdit.this, AllRoomView.class);
+                intent.putExtra("package", dbSimulator);
+                startActivityForResult(intent, edit_customer);
             }
         });
 
@@ -59,31 +70,18 @@ public class CustomerView extends AppCompatActivity {
         });
     }
     public void deleteHandle() {
+        Toast.makeText(this, "You cannot delete customers from here!", Toast.LENGTH_SHORT).show();
         for (int i = customerView.getChildCount() - 1; i >=0; i--) {
             View v = customerView.getChildAt(i);
             CheckBox chk_delete = (CheckBox) v.findViewById(R.id.chk_customer_delete);
             if(chk_delete.isChecked()){
                 chk_delete.setChecked(false);
-                customerList.remove(i);
-                adapter.notifyDataSetChanged();
+//                customerList.remove(i);
+//                adapter.notifyDataSetChanged();
             }
+            chk_delete.setEnabled(false);
         }
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.customer_update, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.item_update_customer) {
-            Intent intent = new Intent(CustomerView.this, CustomerPreviewEdit.class);
-            intent.putExtra("package", dbSimulator);
-            startActivityForResult(intent, edit_customer);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

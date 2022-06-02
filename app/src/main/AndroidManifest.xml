@@ -29,6 +29,9 @@
         <activity android:name=".CustomerView"></activity>
         <activity android:name=".AdminAddCustomer"></activity>
         <activity android:name=".AdminEditRoom"></activity>
+        <activity android:name=".AdminProfitsView"></activity>
+        <activity android:name=".CustomerPreviewEdit"></activity>
+
     </application>
 
 </manifest>

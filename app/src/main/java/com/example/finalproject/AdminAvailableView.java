@@ -66,6 +66,16 @@ public class AdminAvailableView extends AppCompatActivity {
             }
         });
 
+        roomView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(AdminAvailableView.this, ""+roomList.get(i).getType(), Toast.LENGTH_SHORT).show();
+                Intent roomIntent = new Intent(AdminAvailableView.this, DetailRoomView.class);
+                roomIntent.putExtra("room", roomList.get(i));
+                startActivityForResult(roomIntent, detail_edit_code);
+            }
+        });
+
         Button returnBtn = (Button) findViewById(R.id.btn_all_return);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +111,28 @@ public class AdminAvailableView extends AppCompatActivity {
         }
         return idList;
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == detail_edit_code) {
+            if (resultCode == RESULT_OK) {
+
+                // Get String data from Intent
+                Room r = (Room) data.getExtras().get("room");
+                for(int i = 0; i<dbSimulator.roomList.size(); i++){
+                    Room room = dbSimulator.roomList.get(i);
+                    if(r.getId().equals(room.getId())){
+                        dbSimulator.roomList.remove(i);
+                        dbSimulator.roomList.add(i, r);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        }
     }
 
 }

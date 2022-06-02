@@ -1,21 +1,26 @@
 package com.example.finalproject;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
-public class UserInformationComplete extends AppCompatActivity {
+public class UserInformationComplete extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     EditText fullName, phone, email, birthdate;
     Button confirm;
 
@@ -33,6 +38,14 @@ public class UserInformationComplete extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         Customer customer = (Customer) bundle.get("account");
 
+        birthdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerFragment datepicker = new DatePickerFragment();
+                datepicker.show(getSupportFragmentManager(), "Date picker");
+            }
+        });
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +53,7 @@ public class UserInformationComplete extends AppCompatActivity {
                 String phoneNum = phone.getText().toString();
                 String mail = email.getText().toString();
                 String tempDate = birthdate.getText().toString();
-                Date birth = new Date();
+                Date birth;
 
                 try {
                     SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
@@ -68,4 +81,16 @@ public class UserInformationComplete extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        String myFormat="MM/dd/yyyy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+        birthdate.setText(dateFormat.format(calendar.getTime()));
+    }
+
 }

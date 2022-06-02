@@ -82,14 +82,17 @@ public class AllRoomView extends AppCompatActivity {
     }
 
     public void deleteHandle() {
+        Toast.makeText(this, "Please delete at Available Rooms tag!", Toast.LENGTH_SHORT).show();
         for (int i = roomView.getChildCount() - 1; i >=0; i--) {
             View v = roomView.getChildAt(i);
             CheckBox chk_delete = (CheckBox) v.findViewById(R.id.chk_all_delete);
-            if(chk_delete.isChecked()){
-                chk_delete.setChecked(false);
-                roomList.remove(i);
-                adapter.notifyDataSetChanged();
-            }
+            chk_delete.setChecked(false);
+            chk_delete.setEnabled(false);
+//            if(chk_delete.isChecked()){
+//                chk_delete.setChecked(false);
+//                roomList.remove(i);
+//                adapter.notifyDataSetChanged();
+//            }
         }
 
     }

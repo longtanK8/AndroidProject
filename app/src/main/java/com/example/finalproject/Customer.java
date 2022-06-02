@@ -29,6 +29,9 @@ public class Customer implements Serializable {
         this.password = password;
     }
 
+    public Customer(){
+
+    }
     public String getId() {
         return id;
     }

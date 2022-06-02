@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btn_login);
         register = (Button) findViewById(R.id.btn_signup);
 
+        dbSimulator.updateBooking();
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

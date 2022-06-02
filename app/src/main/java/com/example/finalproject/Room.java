@@ -39,6 +39,14 @@ public class Room implements Serializable {
         this.type = type;
     }
 
+    public int getBed() {
+        return bed;
+    }
+
+    public int getPeople() {
+        return people;
+    }
+
     public void setAvailable(boolean available) {
         this.available = available;
     }
@@ -59,6 +67,13 @@ public class Room implements Serializable {
         this.price = price;
     }
 
+    public void setBed(int bed) {
+        this.bed = bed;
+    }
+
+    public void setPeople(int people) {
+        this.people = people;
+    }
 
     @Override
     public String toString() {

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     EditText userName, password;
     Button login, register;
     DBSimulator dbSimulator;
-    private static final int code = 0;
+    private static final int code = 0, customer_login = 2;
     private static final int register_code = 1;
 
     @Override
@@ -50,7 +50,14 @@ public class MainActivity extends AppCompatActivity {
                         adminMain.putExtra("package", dbSimulator);
                         startActivityForResult(adminMain, code);
                     } else {
-                        Toast.makeText(MainActivity.this, "Wrong User name or Password!", Toast.LENGTH_SHORT).show();
+                        int index = checkAccount();
+                        if(index > -1){
+                            Intent userIntent = new Intent(MainActivity.this, Homepage.class);
+                            userIntent.putExtra("package", dbSimulator);
+                            userIntent.putExtra("customer", dbSimulator.customerList.get(index));
+                            startActivityForResult(userIntent, customer_login);
+                        }else
+                            Toast.makeText(MainActivity.this, "Wrong User name or Password!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -86,6 +93,25 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(dbSimulator.customerList.get(0).getName());
             }
         }
+        if(requestCode == customer_login){
+            if(resultCode == RESULT_OK){
+                dbSimulator = (DBSimulator) data.getExtras().get("package");
+            }
+        }
+    }
+
+    int checkAccount(){
+        String temp = this.password.getText().toString();
+        for(int i = 0; i < dbSimulator.customerList.size(); i++){
+            Customer c = dbSimulator.customerList.get(i);
+            String userInput = c.getUserName();
+            String passInput = c.getPassword();
+            if(this.userName.getText().toString().equalsIgnoreCase(userInput)
+                    && temp.equals(passInput)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     boolean checkAdmin() {

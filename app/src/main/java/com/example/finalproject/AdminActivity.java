@@ -28,6 +28,7 @@ public class AdminActivity extends AppCompatActivity {
         dbSimulator = (DBSimulator) extras.get("package");
         List<Room> bookedList = new ArrayList<>();
         List<Room> availableList = new ArrayList<>();
+        dbSimulator.updateBooking();
 
         for(Room r:dbSimulator.roomList){
             if (r.available){

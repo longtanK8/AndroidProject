@@ -53,7 +53,6 @@ public class CustomerView extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("package", dbSimulator);
                 setResult(RESULT_OK, intent);
-                dbSimulator.setCustomerList(customerList);
                 finish();
             }
         });
@@ -85,5 +84,22 @@ public class CustomerView extends AppCompatActivity {
             startActivityForResult(intent, edit_customer);
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == edit_customer) {
+            if (resultCode == RESULT_OK) {
+
+                // Get String data from Intent
+                dbSimulator = (DBSimulator) data.getExtras().get("package");
+
+
+            }
+        }
+        dbSimulator.updateBooking();
+        adapter.list = dbSimulator.customerList;
+        adapter.notifyDataSetChanged();
     }
 }

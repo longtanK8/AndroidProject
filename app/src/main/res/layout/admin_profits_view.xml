@@ -47,6 +47,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
                         android:inputType="textPersonName"
                         android:textStyle="bold" />
 
@@ -65,11 +67,13 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/edt_profits_total"
+                        android:id="@+id/edt_profits_total_booking"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
                         android:inputType="textPersonName"
                         android:textStyle="bold" />
 
@@ -88,11 +92,13 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName3"
+                        android:id="@+id/edt_profits_booked"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
                         android:inputType="textPersonName"
                         android:textStyle="bold" />
 
@@ -111,11 +117,13 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName4"
+                        android:id="@+id/edt_profits_available"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
                         android:inputType="textPersonName"
                         android:textStyle="bold" />
 
@@ -134,11 +142,13 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName5"
+                        android:id="@+id/edt_profits_income"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
                         android:inputType="textPersonName"
                         android:textStyle="bold" />
 

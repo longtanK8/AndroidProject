@@ -31,6 +31,12 @@
         <activity android:name=".AdminEditRoom"></activity>
         <activity android:name=".AdminProfitsView"></activity>
         <activity android:name=".CustomerPreviewEdit"></activity>
+        <activity android:name=".Booking"></activity>
+        <activity android:name=".CustomerControl"></activity>
+        <activity android:name=".EditCustomer"></activity>
+        <activity android:name=".DetailBooking"></activity>
+        <activity android:name=".Homepage"></activity>
+        <activity android:name=".AdminEditCustomer"></activity>
 
     </application>
 

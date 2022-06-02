@@ -5,6 +5,7 @@ import android.os.Bundle;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -12,6 +13,11 @@ import java.util.Random;
 public class DBSimulator implements Serializable {
     List<Room> roomList;
     List<Customer> customerList;
+    int totalCustomer = 0;
+    int totalBookings = 0;
+    int bookedRooms = 0;
+    int availableRooms = 0;
+    long totalIncome = 0;
 
 
     public DBSimulator() {
@@ -33,28 +39,38 @@ public class DBSimulator implements Serializable {
 
 
         Customer c = new Customer("001", "Long Truong", "long@gmail.com", d, "023213214112");
+        c.setUserName("long");
+        c.setPassword("long");
         Customer c2 = new Customer("002", "Danh Dang", "danh@gmail.com", d, "034031434623");
         Customer c3 = new Customer("003", "Thanh Tien", "tien@gmail.com", d, "054676287434");
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
 //            boolean temp;
 //            if (i % 2 == 0) {
 //                temp = true;
 //            } else {
 //                temp = false;
 //            }
-            roomList.add(new Room("00" + i, random[r.nextInt(3)], true));
+            roomList.add(new Room("00" + i, random[r.nextInt(4)], true));
             switch (roomList.get(i).getType()) {
                 case "Deluxe":
                     roomList.get(i).setPrice(10);
+                    roomList.get(i).setPeople(2);
+                    roomList.get(i).setBed(2);
                     break;
                 case "BusinessSuite":
                     roomList.get(i).setPrice(30);
+                    roomList.get(i).setPeople(3);
+                    roomList.get(i).setBed(2);
                     break;
                 case "Junior":
                     roomList.get(i).setPrice(50);
+                    roomList.get(i).setPeople(4);
+                    roomList.get(i).setBed(4);
                     break;
                 case "Superior":
                     roomList.get(i).setPrice(70);
+                    roomList.get(i).setPeople(4);
+                    roomList.get(i).setBed(4);
                     break;
             }
         }
@@ -103,17 +119,37 @@ public class DBSimulator implements Serializable {
     }
 
     public void updateBooking(){
+        List<Room> bookedList = new ArrayList<>();
+        for(Room room : roomList){
+            room.setAvailable(true);
+        }
         for(Customer cus : customerList){
             for(int i = 0 ; i < cus.bookedList.size(); i++){
-                for(Room room : roomList){
-                    if(room.getId().equals(cus.bookedList.get(i).getId())){
-                        room.setAvailable(false);
-                        room.booker = cus;
-                        break;
-                    }else{
-                        room.setAvailable(true);
-                    }
+                cus.bookedList.get(i).booker = cus;
+                bookedList.add(cus.bookedList.get(i));
+            }
+        }
+        Collections.sort(bookedList, (Room i1, Room i2) ->{
+            return Long.compare(Long.parseLong(i1.getId()), Long.parseLong(i2.getId()));
+        });
+        for(Room room: bookedList){
+            int i = 0;
+            for(; i<roomList.size(); i++){
+                if(roomList.get(i).getId().equals(room.getId())){
+                    roomList.get(i).setAvailable(false);
+                    roomList.get(i).booker = room.booker;
+                    i++;
+                    break;
                 }
+            }
+        }
+        bookedRooms = bookedList.size();
+        availableRooms = roomList.size() - bookedList.size();
+        totalCustomer = customerList.size();
+        totalBookings = totalBookings == 0? bookedRooms : totalBookings;
+        if(totalIncome == 0){
+            for (Room r: bookedList){
+                totalIncome+=r.price;
             }
         }
     }

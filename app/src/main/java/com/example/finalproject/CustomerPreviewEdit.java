@@ -51,8 +51,8 @@ public class CustomerPreviewEdit extends AppCompatActivity {
         customerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(CustomerPreviewEdit.this, AllRoomView.class);
-                intent.putExtra("package", dbSimulator);
+                Intent intent = new Intent(CustomerPreviewEdit.this, AdminEditCustomer.class);
+                intent.putExtra("customer", dbSimulator.customerList.get(i));
                 startActivityForResult(intent, edit_customer);
             }
         });
@@ -64,7 +64,6 @@ public class CustomerPreviewEdit extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("package", dbSimulator);
                 setResult(RESULT_OK, intent);
-                dbSimulator.setCustomerList(customerList);
                 finish();
             }
         });
@@ -81,6 +80,32 @@ public class CustomerPreviewEdit extends AppCompatActivity {
             }
             chk_delete.setEnabled(false);
         }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == edit_customer) {
+            if (resultCode == RESULT_OK) {
+
+                // Get String data from Intent
+                Customer c = (Customer) data.getExtras().get("customer");
+                for(int i = 0; i < dbSimulator.customerList.size(); i++){
+                    Customer customer = dbSimulator.customerList.get(i);
+                    if(c.getId().equals(customer.getId())){
+                        dbSimulator.customerList.remove(i);
+                        dbSimulator.customerList.add(i, c);
+                        break;
+                    }
+                }
+                dbSimulator.updateBooking();
+                adapter.notifyDataSetChanged();
+
+            }
+        }
+
 
     }
 

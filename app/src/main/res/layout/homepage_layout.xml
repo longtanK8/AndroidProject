@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A7FFEB"
+    android:backgroundTint="#A7FFEB"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_intro_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:text="Welcome to Paradise Hotel"
+                android:textColor="#AE6321"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/img_hotel"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="@drawable/img_hotel"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:id="@+id/tv_intro_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Paradise Hotel is a leading 5-star international standard hotel located right in the busy business, shopping, commercial and entertainment center of Ho Chi Minh City and just away from Tan Son Nhat International Airport about 8 km by road. Paradise Hotel provides luxurious services and ensures the professionalism of itsstaff. Popular services that are loved at the hotel include: swimming pool, restaurant,..."
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_book_homepage"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#00695C"
+                android:text="Book Now" />
+
+            <Button
+                android:id="@+id/btn_book_logout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#00695C"
+                android:text="Log out" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

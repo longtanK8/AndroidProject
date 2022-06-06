@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_margin="10dp"
-    android:background="#CC27F12F"
+    android:background="#004D40"
     android:padding="10dp">
 
     <ImageView
@@ -29,6 +29,7 @@
             android:layout_weight="1"
             android:gravity="center|left"
             android:text="Room Name"
+            android:textColor="#FBFBFB"
             android:textSize="15dp"
             android:textStyle="bold" />
 
@@ -38,7 +39,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="Status" />
+            android:text="Status"
+            android:textColor="#FBFBFB" />
 
     </LinearLayout>
 
@@ -47,6 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_weight="1"
-        android:text="Delete" />
+        android:text="Delete"
+        android:textColor="#FBFBFB" />
 
 </LinearLayout>

@@ -64,7 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#429E46"
+                android:backgroundTint="#004D40"
                 android:text="Login"
                 app:cornerRadius="30dp" />
 
@@ -83,7 +83,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#429E46"
+                android:backgroundTint="#004D40"
                 android:text="Signup"
                 app:cornerRadius="30dp" />
         </LinearLayout>

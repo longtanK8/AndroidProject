@@ -12,6 +12,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="PROFITS"
+        android:textColor="#B71C1C"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -38,6 +39,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="15dp"
                         android:text="Total Customer"
                         android:textStyle="bold" />
 
@@ -63,6 +65,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="15dp"
                         android:text="Total Bookings"
                         android:textStyle="bold" />
 
@@ -88,6 +91,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="15dp"
                         android:text="Booked Rooms"
                         android:textStyle="bold" />
 
@@ -113,6 +117,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="15dp"
                         android:text="Available Rooms"
                         android:textStyle="bold" />
 
@@ -138,6 +143,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:paddingLeft="15dp"
                         android:text="Total Income"
                         android:textStyle="bold" />
 
@@ -164,7 +170,7 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:backgroundTint="#4CAF50"
+                        android:backgroundTint="#004D40"
                         android:text="Confirm" />
                 </TableRow>
 

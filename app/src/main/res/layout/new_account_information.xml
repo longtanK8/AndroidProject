@@ -12,6 +12,7 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="PERSONAL INFORMATION"
+        android:textColor="#B71C1C"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -31,6 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:text="Full name"
                 android:textStyle="bold" />
 
@@ -53,6 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:text="Phone number"
                 android:textStyle="bold" />
 
@@ -76,6 +79,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:text="Email"
                 android:textStyle="bold" />
 
@@ -98,6 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingLeft="10dp"
                 android:text="Birthdate"
                 android:textStyle="bold" />
 
@@ -126,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="#004D40"
                 android:text="Confirm Information" />
         </TableRow>
 

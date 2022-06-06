@@ -12,6 +12,7 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="ROOM DETAIL"
+        android:textColor="#B71C1C"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -140,7 +141,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="#004D40"
                 android:text="Return" />
 
             <Button
@@ -149,7 +150,7 @@
                 android:layout_height="60dp"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="#CD2115"
+                android:backgroundTint="#B3160B"
                 android:text="Edit" />
         </TableRow>
 

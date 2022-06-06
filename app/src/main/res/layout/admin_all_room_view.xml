@@ -10,12 +10,14 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="ALL ROOMS"
+        android:textColor="#B71C1C"
         android:textSize="30dp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#004D40"
         android:orientation="horizontal">
 
         <Button
@@ -24,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="3"
+            android:backgroundTint="#004D40"
             android:text="Return" />
 
         <Space
@@ -37,11 +40,14 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bin" />
+            android:background="@drawable/bin"
+            android:backgroundTint="#004D40"
+            android:hapticFeedbackEnabled="false" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/lv_all_room"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:backgroundTint="#004D40" />
 </LinearLayout>

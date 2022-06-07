@@ -122,6 +122,7 @@ public class DBSimulator implements Serializable {
         List<Room> bookedList = new ArrayList<>();
         for(Room room : roomList){
             room.setAvailable(true);
+            room.booker = null;
         }
         for(Customer cus : customerList){
             for(int i = 0 ; i < cus.bookedList.size(); i++){

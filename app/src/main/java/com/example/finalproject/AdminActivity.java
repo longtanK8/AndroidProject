@@ -129,7 +129,7 @@ public class AdminActivity extends AppCompatActivity {
         }else if(requestCode == add_customer){
             if(resultCode == RESULT_OK){
                 dbSimulator = (DBSimulator) data.getExtras().get("package");
-                Toast.makeText(this, "cCustomer added successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Customer added successfully!", Toast.LENGTH_SHORT).show();
             }
         }
 

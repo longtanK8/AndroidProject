@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 dbSimulator = (DBSimulator) data.getExtras().get("package");
             }
         }
+
+        dbSimulator.updateBooking();
     }
 
     int checkAccount(){

@@ -34,9 +34,17 @@ public class DetailRoomView extends AppCompatActivity {
         type.setText(room.getType());
         price.setText("" + room.getPrice());
         description.setText(room.getDescription());
-        String bookerName = room.booker.getName();
-        if(bookerName.equals(""))
+        Customer rBooker = room.booker;
+        String bookerName = "";
+        try{
+            bookerName = rBooker.getName();
+            if(bookerName.equals("")){
+                bookerName = "No booking order yet";
+            }
+        }catch (Exception e){
             bookerName = "No booking order yet";
+        }
+
         booker.setText(bookerName);
 
 
